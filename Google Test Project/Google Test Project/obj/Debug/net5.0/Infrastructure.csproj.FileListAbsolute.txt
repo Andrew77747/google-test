@@ -1,0 +1,11 @@
+C:\Git\google-test\Google Test Project\Google Test Project\bin\Debug\net5.0\Infrastructure.deps.json
+C:\Git\google-test\Google Test Project\Google Test Project\bin\Debug\net5.0\Infrastructure.dll
+C:\Git\google-test\Google Test Project\Google Test Project\bin\Debug\net5.0\ref\Infrastructure.dll
+C:\Git\google-test\Google Test Project\Google Test Project\bin\Debug\net5.0\Infrastructure.pdb
+C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\Infrastructure.AssemblyInfo.cs
+C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\Infrastructure.dll
+C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\ref\Infrastructure.dll
+C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\Infrastructure.pdb

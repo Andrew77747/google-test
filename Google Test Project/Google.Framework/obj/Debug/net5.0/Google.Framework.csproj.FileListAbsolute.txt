@@ -1,0 +1,15 @@
+C:\Git\google-test\Google Test Project\Google.Framework\bin\Debug\net5.0\Google.Framework.deps.json
+C:\Git\google-test\Google Test Project\Google.Framework\bin\Debug\net5.0\Google.Framework.dll
+C:\Git\google-test\Google Test Project\Google.Framework\bin\Debug\net5.0\ref\Google.Framework.dll
+C:\Git\google-test\Google Test Project\Google.Framework\bin\Debug\net5.0\Google.Framework.pdb
+C:\Git\google-test\Google Test Project\Google.Framework\bin\Debug\net5.0\Infrastructure.dll
+C:\Git\google-test\Google Test Project\Google.Framework\bin\Debug\net5.0\Infrastructure.pdb
+C:\Git\google-test\Google Test Project\Google.Framework\obj\Debug\net5.0\Google.Framework.csproj.AssemblyReference.cache
+C:\Git\google-test\Google Test Project\Google.Framework\obj\Debug\net5.0\Google.Framework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\google-test\Google Test Project\Google.Framework\obj\Debug\net5.0\Google.Framework.AssemblyInfoInputs.cache
+C:\Git\google-test\Google Test Project\Google.Framework\obj\Debug\net5.0\Google.Framework.AssemblyInfo.cs
+C:\Git\google-test\Google Test Project\Google.Framework\obj\Debug\net5.0\Google.Framework.csproj.CoreCompileInputs.cache
+C:\Git\google-test\Google Test Project\Google.Framework\obj\Debug\net5.0\Google.Framework.csproj.CopyComplete
+C:\Git\google-test\Google Test Project\Google.Framework\obj\Debug\net5.0\Google.Framework.dll
+C:\Git\google-test\Google Test Project\Google.Framework\obj\Debug\net5.0\ref\Google.Framework.dll
+C:\Git\google-test\Google Test Project\Google.Framework\obj\Debug\net5.0\Google.Framework.pdb
