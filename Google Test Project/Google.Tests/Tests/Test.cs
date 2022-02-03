@@ -1,39 +1,42 @@
-﻿using Google.Framework.PageObjects.Pages;
-using Google.Framework.Tools;
+﻿using System.Threading;
+using Google.Framework.PageObjects.Pages;
 using Infrastructure.Settings;
 using NUnit.Framework;
-using OpenQA.Selenium;
 
 namespace Google.Tests.Tests
 {
     [TestFixture]
-    public class Test /*: TestBase*/
+    public class Test : TestBase
     {
         private GoogleSearchPage _googleSearchPage;
-        private IWebDriverManager _manager;
+        
         public Test()
         {
-            _manager = new WebDriverManager();
-            _googleSearchPage = new GoogleSearchPage(_manager, new Appsettings());
+            _googleSearchPage = new GoogleSearchPage(Manager, new Appsettings());
+        }
+
+        [SetUp]
+        public void Start()
+        {
+            _googleSearchPage.OpenGooglePage();
         }
 
         [Test]
 
         public void CheckGooglePageUI()
         {
-            _googleSearchPage.OpenGooglePage();
-            Assert.IsTrue(_googleSearchPage.IsLogoExists());
-            Assert.IsTrue(_googleSearchPage.IsSearchInputExists());
-            Assert.IsTrue(_googleSearchPage.IsSearchIconExists());
-            Assert.IsTrue(_googleSearchPage.IsVirtualKeyboardsButtonExists());
+            Assert.IsTrue(_googleSearchPage.IsLogoExists(), "");
+            Assert.IsTrue(_googleSearchPage.IsSearchInputExists(), "");
+            Assert.IsTrue(_googleSearchPage.IsSearchIconExists(), "");
+            Assert.IsTrue(_googleSearchPage.IsVirtualKeyboardsButtonExists(), "");
             Assert.IsTrue(_googleSearchPage.IsSearchButtonExists());
             Assert.IsTrue(_googleSearchPage.IsSearchLuckyButtonExists());
             Assert.IsTrue(_googleSearchPage.IsMailLinkExists());
             Assert.IsTrue(_googleSearchPage.IsPicturesLinkButtonExists());
             Assert.IsTrue(_googleSearchPage.IsGoogleAppsMenuExists());
             Assert.IsTrue(_googleSearchPage.IsLoginButtonExists());
-            Assert.IsTrue(_googleSearchPage.IsSettingsExist());
             Assert.IsTrue(_googleSearchPage.IsAboutGoogleExists());
+            Assert.IsTrue(_googleSearchPage.IsSettingsExist());
             Assert.IsTrue(_googleSearchPage.IsAdvertasingExists());
             Assert.IsTrue(_googleSearchPage.IsConditionsExist());
             Assert.IsTrue(_googleSearchPage.IsConfidentialityExists());
@@ -46,21 +49,56 @@ namespace Google.Tests.Tests
         [Test]
         public void CheckLoginPage()
         {
-            _googleSearchPage.OpenGooglePage();
-            Assert.IsTrue(_googleSearchPage.IsEnterFormPresents());
+            Assert.IsTrue(_googleSearchPage.IsEnterFormPresents(), "");
         }
 
         [Test]
-        public void CheckGoogleSearch()
+        public void CheckGoogleSearchWithSearchButton()
         {
-            _googleSearchPage.OpenGooglePage();
-            _googleSearchPage.SearchInput();
+            _googleSearchPage.SearchInputClick();
+            Assert.AreEqual("Привет, Мир!", _googleSearchPage.SearchResult(), "");
+            //Assert.Contains("search", _googleSearchPage.SearchUrl(), "");
         }
 
-        [TearDown]
-        public void Stop()
+        [Test]
+        public void CheckGoogleSearchWithEnter()
         {
-            _manager.Dispose();
+            _googleSearchPage.SearchInputEnter();
+            Assert.AreEqual("Привет, Мир!", _googleSearchPage.SearchResult(), "");
+            //Assert.Contains("search", _googleSearchPage.SearchUrl(), "");
+        }
+
+        [Test]
+        public void CheckMenuDropdawn()
+        {
+            //Assert.IsTrue(page.TopMenu.IsDropdownVisible(page.TopMenu._dropdown), "Dropdown should be visible");
+            Assert.IsTrue(_googleSearchPage.IsDropdownVisible(), "Dropdown should be visible");
+        }
+
+        [Test]
+        public void CheckKeyboard()
+        {
+            Assert.IsTrue(_googleSearchPage.IsKeyboardVisible(), "Keyboard should be visible");
+        }
+
+        [Test]
+        public void CheckHintsDropdown()
+        {
+            Assert.IsTrue(_googleSearchPage.IsHintsVisible(), "HintsDropdown should be visible");
+        }
+
+        [Test]
+        public void CheckEmptyInput()
+        {
+            Assert.AreEqual(_googleSearchPage.BaseUrl, _googleSearchPage.ClickSearchButtonWithEmptyInput(), "Urls should be equal");
+            Assert.AreEqual(_googleSearchPage.LuckyPageUrl, _googleSearchPage.ClickLuckyButtonWithEmptyInput(), "Urls should be equal");
+        }
+
+        [Test]
+        public void CheckLogin()
+        {
+            _googleSearchPage.Login();
+            Thread.Sleep(5000);
         }
     }
 }

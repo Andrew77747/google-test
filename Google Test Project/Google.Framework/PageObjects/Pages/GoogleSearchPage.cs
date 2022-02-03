@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading;
 using Google.Framework.PageObjects.Elements;
 using Google.Framework.Tools;
@@ -11,8 +12,11 @@ namespace Google.Framework.PageObjects.Pages
     {
         private Appsettings _settings;
         private Footer _footer;
-        private string Url = "https://www.google.ru";
-        private string _searchText = "Привет, мир!";
+        public string BaseUrl = "https://www.google.ru/";
+        public string LuckyPageUrl = "https://www.google.com/doodles";
+        private string _demoText = "Привет, мир!";
+        private string _email = "test37670@gmail.com";
+        private string _password = "Test2022";
 
 
         public GoogleSearchPage(IWebDriverManager manager, Appsettings settings) : base(manager)
@@ -26,22 +30,29 @@ namespace Google.Framework.PageObjects.Pages
         private readonly By _googleLogo = By.CssSelector("img.lnXdpd");
         private readonly By _searchInput = By.CssSelector(".gLFyf.gsfi");
         private readonly By _searchIcon = By.CssSelector(".QCzoEc.z1asCe.MZy1Rb");
-        private readonly By _virtualKeyboardsButton = By.CssSelector(".Umvnrc .ly0Ckb");
+        private readonly By _virtualKeyboardButton = By.CssSelector(".Umvnrc .ly0Ckb");
         private readonly By _searchButton = By.CssSelector(".FPdoLc .gNO89b");
         private readonly By _luckyButton = By.CssSelector(".FPdoLc .RNmpXc");
         private readonly By _mail = By.CssSelector(".gb_e [data-pid='23']");
         private readonly By _pictures = By.CssSelector(".gb_e [data-pid='2']");
-        private readonly By _googleApps = By.CssSelector(".gb_A .gb_Oe");
+        private readonly By _googleAppsIcon = By.CssSelector(".gb_A .gb_Oe");
+        private readonly By _googleApps = By.CssSelector(".LVal7b.u4RcUd");
         private readonly By _loginButton = By.CssSelector(".gb_1.gb_2.gb_2d.gb_2c");
         private readonly By _enterForm = By.CssSelector("div.xkfVF");
-        private readonly By _searchResult = By.CssSelector(".yuRUbf");
+        private readonly By _searchResult = By.CssSelector(".LC20lb.MBeuO");
+        private readonly By _virtualKeyboard = By.CssSelector(".ita-container");
+        private readonly By _emptyArea = By.CssSelector(".o3j99.LLD4me");
+        private readonly By _hintsDropdown = By.CssSelector("[jsname='aajZCb']");
+        private readonly By _loginInput = By.CssSelector("[type='email']");
+        private readonly By _nextButton = By.XPath("//*[contains(text(), 'Далее')]");
+        private readonly By _passwordInput = By.CssSelector("[type='password']");
 
 
         #endregion
 
         public void OpenGooglePage()
         {
-            Wrapper.Navigate(Url);
+            Wrapper.Navigate(BaseUrl);
         }
 
         public bool IsLogoExists()
@@ -61,7 +72,7 @@ namespace Google.Framework.PageObjects.Pages
 
         public bool IsVirtualKeyboardsButtonExists()
         {
-            return Wrapper.IsElementDisplayed(_virtualKeyboardsButton);
+            return Wrapper.IsElementDisplayed(_virtualKeyboardButton);
         }
 
         public bool IsSearchButtonExists()
@@ -86,7 +97,7 @@ namespace Google.Framework.PageObjects.Pages
 
         public bool IsGoogleAppsMenuExists()
         {
-            return Wrapper.IsElementDisplayed(_googleApps);
+            return Wrapper.IsElementDisplayed(_googleAppsIcon);
         }
 
         public bool IsLoginButtonExists()
@@ -145,11 +156,65 @@ namespace Google.Framework.PageObjects.Pages
             return Wrapper.IsElementDisplayed(_enterForm);
         }
 
-        public void SearchInput()
+        public void SearchInputClick()
         {
-            Wrapper.TypeAndSendWithEnter(_searchInput, _searchText);
+            Wrapper.Type(_searchInput, _demoText);
+            Wrapper.ClickElement(_emptyArea);
+            Wrapper.ClickElement(_searchButton);
         }
 
-        public 
+        public void SearchInputEnter()
+        {
+            Wrapper.TypeAndSendWithEnter(_searchInput, _demoText);
+        }
+
+        public string SearchResult()
+        {
+            return Wrapper.FindElement(_searchResult).Text;
+        }
+
+        //public string SearchUrl()
+        //{
+        //    String URL = Wrapper.GetUrl();
+        //    return 
+        //}
+
+        public bool IsDropdownVisible()
+        {
+            Wrapper.ClickElement(_googleAppsIcon);
+            return Wrapper.IsElementDisplayed(_googleApps);
+        }
+
+        public bool IsKeyboardVisible()
+        {
+            Wrapper.ClickElement(_virtualKeyboardButton);
+            return Wrapper.IsElementDisplayed(_virtualKeyboard);
+        }
+
+        public bool IsHintsVisible()
+        {
+            Wrapper.Type(_searchInput, _demoText);
+            Wrapper.ClickElement(_searchInput);
+            return Wrapper.IsElementDisplayed(_hintsDropdown);
+        }
+
+        public string ClickSearchButtonWithEmptyInput()
+        {
+            Wrapper.ClickElement(_searchButton);
+            return Wrapper.GetUrl();
+        }
+
+        public string ClickLuckyButtonWithEmptyInput()
+        {
+            Wrapper.ClickElement(_luckyButton);
+            return Wrapper.GetUrl();
+        }
+
+        public void Login()
+        {
+            Wrapper.ClickElement(_loginButton);
+            Wrapper.TypeAndSendWithEnter(_loginInput, _email);
+            Wrapper.TypeAndSendWithEnter(_passwordInput, _password);
+        }
     }
 }

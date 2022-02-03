@@ -9,3 +9,4 @@ C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\Infr
 C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\Infrastructure.dll
 C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\ref\Infrastructure.dll
 C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\Infrastructure.pdb
+C:\Git\google-test\Google Test Project\Google Test Project\obj\Debug\net5.0\Infrastructure.csproj.AssemblyReference.cache

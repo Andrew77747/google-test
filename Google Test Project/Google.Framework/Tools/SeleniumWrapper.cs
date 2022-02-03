@@ -155,12 +155,12 @@ namespace Google.Framework.Tools
             try
             {
                 _driver.FindElement(By.XPath($"//*[contains(text(), '{text}')]"));
-                Console.WriteLine($"Злобный Гурч злобно видит текст {text}");
+                Console.WriteLine($"This text exists {text}");
                 return true;
             }
             catch (Exception)
             {
-                Console.WriteLine($"Злобный Гурч не видит текст {text}. Выпускаем шмеля");
+                Console.WriteLine($"This text does not exists {text}");
                 return false;
             }
         }

@@ -8,16 +8,15 @@ namespace Google.Tests.Tests
     {
         public WebDriverManager Manager;
 
-        [SetUp]
-        public void Start()
+        public TestBase()
         {
-            //Manager = new WebDriverManager();
+            Manager = new WebDriverManager();
         }
 
-        //[TearDown]
-        //public void Stop()
-        //{
-        //    Manager.Dispose();
-        //}
+        [OneTimeTearDown]
+        public void Stop()
+        {
+            Manager.Dispose();
+        }
     }
 }
