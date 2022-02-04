@@ -48,7 +48,7 @@ namespace Google.Tests.Tests
         }
 
         [Test]
-        public void CheckLoginPage()
+        public void ALoginPage()
         {
             Assert.IsTrue(_googleSearchPage.IsLoginFormPresents(), "Login form should be present");
         }
