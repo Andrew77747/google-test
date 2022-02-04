@@ -1,18 +1,19 @@
-﻿using System.Threading;
-using Google.Framework.PageObjects.Pages;
+﻿using Google.Framework.PageObjects.Pages;
 using Infrastructure.Settings;
 using NUnit.Framework;
 
 namespace Google.Tests.Tests
 {
     [TestFixture]
-    public class Test : TestBase
+    public class Tests : TestBase
     {
         private GoogleSearchPage _googleSearchPage;
+        private Appsettings _settings;
         
-        public Test()
+        public Tests()
         {
             _googleSearchPage = new GoogleSearchPage(Manager, Settings);
+            _settings = new ConfigurationManager().GetSettings();
         }
 
         [SetUp]
@@ -23,7 +24,7 @@ namespace Google.Tests.Tests
 
         [Test]
 
-        public void CheckGooglePageUI()
+        public void CheckGooglePageUi()
         {
             Assert.IsTrue(_googleSearchPage.IsLogoExists(), "");
             Assert.IsTrue(_googleSearchPage.IsSearchInputExists(), "");
@@ -49,21 +50,28 @@ namespace Google.Tests.Tests
         [Test]
         public void CheckLoginPage()
         {
-            Assert.IsTrue(_googleSearchPage.IsEnterFormPresents(), "");
+            Assert.IsTrue(_googleSearchPage.IsLoginFormPresents(), "Login form should be present");
+        }
+
+        [Test]
+        public void CheckSimpleGoogleSearch()
+        {
+            _googleSearchPage.SearchInputEnter();
+            Assert.IsTrue(_googleSearchPage.IsStringContainsText("Привет"), "Search result should contain the word");
         }
 
         [Test]
         public void CheckGoogleSearchWithSearchButton()
         {
             _googleSearchPage.SearchInputClick();
-            Assert.AreEqual("Привет, Мир!", _googleSearchPage.SearchResult(), "");
+            Assert.AreEqual("Привет, Мир!", _googleSearchPage.SearchResult(), "Search result should be equal");
         }
 
         [Test]
         public void CheckGoogleSearchWithEnter()
         {
             _googleSearchPage.SearchInputEnter();
-            Assert.AreEqual("Привет, Мир!", _googleSearchPage.SearchResult(), "");
+            Assert.AreEqual("Привет, Мир!", _googleSearchPage.SearchResult(), "Search result should be equal");
         }
 
         [Test]
@@ -79,17 +87,24 @@ namespace Google.Tests.Tests
         }
 
         [Test]
-        public void CheckEmptyInput()
+        public void CheckSearchButtonWithEmptyInput()
         {
-            //Assert.AreEqual(_googleSearchPage.BaseUrl, _googleSearchPage.ClickSearchButton(), "Urls should be equal");
-            //Assert.AreEqual(_googleSearchPage.LuckyPageUrl, _googleSearchPage.ClickLuckyButton(), "Urls should be equal");// вынести в отдельный метод
+            _googleSearchPage.ClickSearchButton();
+            Assert.AreEqual(_settings.BaseUrl, _googleSearchPage.GetCurrentUrl(), "Urls should be equal");
+        }
+
+        [Test]
+        public void CheckLuckyButtonWithEmptyInput()
+        { 
+            _googleSearchPage.ClickLuckyButton();
+            Assert.AreEqual(_settings.LuckyPageUrl, _googleSearchPage.GetCurrentUrl(), "Urls should be equal");
         }
 
         [Test]
         public void CheckLogin()
         {
             _googleSearchPage.Login();
-            Assert.AreEqual("test37670@gmail.com", _googleSearchPage.GetAccountEmail(), "");
+            Assert.AreEqual(_settings.Email, _googleSearchPage.GetAccountEmail(), "User must be logged in");
         }
     }
 }

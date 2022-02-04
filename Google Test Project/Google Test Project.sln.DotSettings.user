@@ -9,13 +9,15 @@
     &lt;TestId&gt;NUnit3x::ABBA3221-E105-4306-853C-91B81D0D75D8::net5.0::Google.Tests.Tests.Test.PROVERKA&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d0fb9808_002Dd146_002D4b95_002D837c_002D27233ebcbf90/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="PROVERKA #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d0fb9808_002Dd146_002D4b95_002D837c_002D27233ebcbf90/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PROVERKA #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::ABBA3221-E105-4306-853C-91B81D0D75D8::net5.0::Google.Tests.Tests.Test.CheckGoogleSearchWithSearchButton&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::ABBA3221-E105-4306-853C-91B81D0D75D8::net5.0::Google.Tests.Tests.Test.CheckHintsDropdown&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::ABBA3221-E105-4306-853C-91B81D0D75D8::net5.0::Google.Tests.Tests.Test.CheckEmptyInput&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::ABBA3221-E105-4306-853C-91B81D0D75D8::net5.0::Google.Tests.Tests.Test.CheckLogin&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::ABBA3221-E105-4306-853C-91B81D0D75D8::net5.0::Google.Tests.Tests.Test.CheckMenuDropdawn&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::ABBA3221-E105-4306-853C-91B81D0D75D8::net5.0::Google.Tests.Tests.Test.CheckLoginPage&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::ABBA3221-E105-4306-853C-91B81D0D75D8::net5.0::Google.Tests.Tests.Test.CheckSimpleGoogleSearch&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=de00de49_002D3bd0_002D474f_002D990b_002D32caaf9fc542/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PROVERKA" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -30,7 +32,7 @@
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ed46bfef_002D1621_002D4e43_002Dacdb_002Dd603d012777b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="PROVERKA #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::ABBA3221-E105-4306-853C-91B81D0D75D8::net5.0::Google.Tests.Tests.Test.PROVERKA&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::ABBA3221-E105-4306-853C-91B81D0D75D8::net5.0::Google.Tests.Tests.Test.CheckLogin&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestRunner/HangingTestRunnerResponse/@EntryValue">KillProcess</s:String></wpf:ResourceDictionary>

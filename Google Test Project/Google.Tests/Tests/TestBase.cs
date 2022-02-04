@@ -18,17 +18,17 @@ namespace Google.Tests.Tests
             Settings = new ConfigurationManager().GetSettings();
         }
 
-        //[TearDown]
-        //public void TeardownTest()
-        //{
-        //    if (TestContext.CurrentContext.Result.Status == TestStatus.Failed)
-        //    {
-        //        var screenshot = new ScreenshotMaker(Manager.Driver, TestContext.CurrentContext.Test.Name);
-        //        Console.WriteLine("The screen shot was made into " + screenshot.Path);
-        //        TestContext.AddTestAttachment(screenshot.Path);
-        //    } 
-        //}
-        
+        [TearDown]
+        public void TeardownTest()
+        {
+            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+            {
+                var screenshot = new ScreenshotMaker(Manager.Driver, TestContext.CurrentContext.Test.Name);
+                Console.WriteLine("The screen shot was made into " + screenshot.Path);
+                TestContext.AddTestAttachment(screenshot.Path);
+            }
+        }
+
         [OneTimeTearDown]
         public void Stop()
         {

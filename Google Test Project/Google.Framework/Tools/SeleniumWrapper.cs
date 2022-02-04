@@ -45,6 +45,11 @@ namespace Google.Framework.Tools
             _driver.Navigate().GoToUrl(url);
         }
 
+        public void SendKeysAndEscape(By by, string text)
+        {
+            _driver.FindElement(by).SendKeys(text + Keys.Escape);
+        }
+
         public void PointToElement(By selector)
         {
             Actions action = new Actions(_driver);
@@ -188,7 +193,7 @@ namespace Google.Framework.Tools
         {
             try
             {
-                _customDriverWait.Until(d => IsElementVisible(by)); //TODO investigate and fix
+                _customDriverWait.Until(d => IsElementVisible(by));
                 return true;
             }
             catch (Exception e)

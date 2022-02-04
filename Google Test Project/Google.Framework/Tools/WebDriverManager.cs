@@ -9,24 +9,6 @@ namespace Google.Framework.Tools
 
     {
         public IWebDriver Driver;
-        public WebDriverWait Wait;
-        private readonly int x;
-
-        //public WebDriverManager()
-        //{
-        //}
-
-        //public IWebDriver Driver;
-        //public WebDriverWait Wait;
-        //public Appsettings Settings;
-
-        //public WebDriverManager()
-        //{
-        //    Driver = GetDriver();
-        //    Settings = new Appsettings();
-        //    Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(Settings.Timeout));
-        //    Driver.Manage().Window.Maximize();
-        //}
 
         public IWebDriver GetDriver()
         {
@@ -40,12 +22,6 @@ namespace Google.Framework.Tools
             Driver.Manage().Window.Maximize();
             return Driver;
         }
-
-        //public WebDriverWait GetWaiter()
-        //{
-        //    Wait = new WebDriverWait(GetDriver(), TimeSpan.FromSeconds(3));
-        //    return Wait;
-        //}
 
         public WebDriverWait GetWaiter()
         {

@@ -9,12 +9,7 @@ namespace Google.Framework.PageObjects.Pages
     {
         private Appsettings _settings;
         private Footer _footer;
-        //public string BaseUrl = "https://www.google.ru/";
-        //public string LuckyPageUrl = "https://www.google.com/doodles";
         private string _demoText = "Привет, мир!";
-        //private string _email = "test37670@gmail.com";
-        //private string _password = "Test2022";
-
 
         public GoogleSearchPage(IWebDriverManager manager, Appsettings settings) : base(manager)
         {
@@ -33,16 +28,14 @@ namespace Google.Framework.PageObjects.Pages
         private readonly By _mail = By.CssSelector(".gb_e [data-pid='23']");
         private readonly By _pictures = By.CssSelector(".gb_e [data-pid='2']");
         private readonly By _googleAppsIcon = By.CssSelector(".gb_A .gb_Oe");
-        private readonly By _googleApps = By.CssSelector(".LVal7b.u4RcUd");
         private readonly By _loginButton = By.CssSelector(".gb_1.gb_2.gb_2d.gb_2c");
         private readonly By _enterForm = By.CssSelector("div.xkfVF");
         private readonly By _searchResult = By.CssSelector(".LC20lb.MBeuO");
         private readonly By _virtualKeyboard = By.CssSelector(".ita-container");
-        //private readonly By _emptyArea = By.CssSelector(".o3j99.qarstb");
         private readonly By _hintsDropdown = By.CssSelector("[jsname='aajZCb']");
         private readonly By _loginInput = By.CssSelector("[type='email']");
-        private readonly By _nextButton = By.XPath("//*[contains(text(), 'Далее')]");
         private readonly By _passwordInput = By.CssSelector("[type='password']");
+        private readonly By _emptyArea = By.CssSelector(".o3j99.c93Gbe");
         private readonly By _accauntIcon = By.CssSelector("img.gb_Aa");
         private readonly By _accauntEmail = By.CssSelector(".gb_mb");
 
@@ -106,50 +99,50 @@ namespace Google.Framework.PageObjects.Pages
 
         public bool IsSettingsExist()
         {
-            return Wrapper.IsElementDisplayed(_footer._settings);
+            return Wrapper.IsElementDisplayed(_footer.Settings);
         }
 
         public bool IsAboutGoogleExists()
         {
-            return Wrapper.IsElementDisplayed(_footer._aboutGoogle);
+            return Wrapper.IsElementDisplayed(_footer.AboutGoogle);
         }
 
         public bool IsAdvertasingExists()
         {
-            return Wrapper.IsElementDisplayed(_footer._advertising);
+            return Wrapper.IsElementDisplayed(_footer.Advertising);
         }
 
         public bool IsConditionsExist()
         {
-            return Wrapper.IsElementDisplayed(_footer._conditions);
+            return Wrapper.IsElementDisplayed(_footer.Conditions);
         }
 
         public bool IsConfidentialityExists()
         {
-            return Wrapper.IsElementDisplayed(_footer._confidentiality);
+            return Wrapper.IsElementDisplayed(_footer.Confidentiality);
         }
 
         public bool IsCountryNameExists()
         {
-            return Wrapper.IsElementDisplayed(_footer._countryName);
+            return Wrapper.IsElementDisplayed(_footer.CountryName);
         }
 
         public bool IsForBusinessExists()
         {
-            return Wrapper.IsElementDisplayed(_footer._forBusiness);
+            return Wrapper.IsElementDisplayed(_footer.ForBusiness);
         }
 
         public bool IsHowWorkGoogleSearchExists()
         {
-            return Wrapper.IsElementDisplayed(_footer._howWorkGoogleSearch);
+            return Wrapper.IsElementDisplayed(_footer.HowWorkGoogleSearch);
         }
 
         public bool IsSpanCarbonDioxideExists()
         {
-            return Wrapper.IsElementDisplayed(_footer._spanCarbonDioxide);
+            return Wrapper.IsElementDisplayed(_footer.SpanCarbonDioxide);
         }
 
-        public bool IsEnterFormPresents()
+        public bool IsLoginFormPresents()
         {
             Wrapper.ClickElement(_loginButton);
             return Wrapper.IsElementDisplayed(_enterForm);
@@ -158,8 +151,14 @@ namespace Google.Framework.PageObjects.Pages
         public void SearchInputClick()
         {
             Wrapper.Type(_searchInput, _demoText);
-            //Wrapper.ClickElement(_emptyArea);
+            Wrapper.ClickElement(_emptyArea);
             Wrapper.ClickElement(_searchButton);
+        }
+
+        public bool IsStringContainsText(string searchWord)
+        {
+            string searchResult = Wrapper.FindElement(_searchResult).Text;
+            return searchResult.Contains(searchWord);
         }
 
         public void SearchInputEnter()
