@@ -9,11 +9,11 @@ namespace Google.Framework.PageObjects.Pages
     {
         private Appsettings _settings;
         private Footer _footer;
-        public string BaseUrl = "https://www.google.ru/";
-        public string LuckyPageUrl = "https://www.google.com/doodles";
+        //public string BaseUrl = "https://www.google.ru/";
+        //public string LuckyPageUrl = "https://www.google.com/doodles";
         private string _demoText = "Привет, мир!";
-        private string _email = "test37670@gmail.com";
-        private string _password = "Test2022";
+        //private string _email = "test37670@gmail.com";
+        //private string _password = "Test2022";
 
 
         public GoogleSearchPage(IWebDriverManager manager, Appsettings settings) : base(manager)
@@ -51,7 +51,7 @@ namespace Google.Framework.PageObjects.Pages
 
         public void OpenGooglePage()
         {
-            Wrapper.Navigate(BaseUrl);
+            Wrapper.Navigate(_settings.BaseUrl);
         }
 
         public bool IsLogoExists()
@@ -203,8 +203,8 @@ namespace Google.Framework.PageObjects.Pages
         public void Login()
         {
             Wrapper.ClickElement(_loginButton);
-            Wrapper.TypeAndSendWithEnter(_loginInput, _email);
-            Wrapper.TypeAndSendWithEnter(_passwordInput, _password);
+            Wrapper.TypeAndSendWithEnter(_loginInput, _settings.Email);
+            Wrapper.TypeAndSendWithEnter(_passwordInput, _settings.Password);
             Wrapper.ClickElement(_accauntIcon);
         }
 

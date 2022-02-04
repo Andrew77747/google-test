@@ -12,7 +12,7 @@ namespace Google.Tests.Tests
         
         public Test()
         {
-            _googleSearchPage = new GoogleSearchPage(Manager, new Appsettings());
+            _googleSearchPage = new GoogleSearchPage(Manager, Settings);
         }
 
         [SetUp]
