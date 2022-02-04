@@ -20,13 +20,12 @@ namespace Google.Tests.Tests
         {
             if (TestContext.CurrentContext.Result.Status == TestStatus.Failed)
             {
-                var screenshot = new ScreenshotMaker(Manager, TestContext.CurrentContext.Test.Name);
+                var screenshot = new ScreenshotMaker(Manager.Driver, TestContext.CurrentContext.Test.Name);
                 Console.WriteLine("The screen shot was made into " + screenshot.Path);
                 TestContext.AddTestAttachment(screenshot.Path);
             } 
         }
         
-
         [OneTimeTearDown]
         public void Stop()
         {

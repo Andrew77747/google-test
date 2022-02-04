@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using Google.Framework.PageObjects.Elements;
+﻿using Google.Framework.PageObjects.Elements;
 using Google.Framework.Tools;
 using Infrastructure.Settings;
 using OpenQA.Selenium;

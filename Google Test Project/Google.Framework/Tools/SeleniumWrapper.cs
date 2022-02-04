@@ -26,8 +26,6 @@ namespace Google.Framework.Tools
 
         public void SwitchToAlertAccept()
         {
-            //IAlert alert = _driver.SwitchTo().Alert();
-            //alert.Accept();
             _driver.SwitchTo().Alert().Accept();
         }
 
@@ -65,8 +63,6 @@ namespace Google.Framework.Tools
 
         public void ClearTypeAndSend(By by, string text)
         {
-            //_driver.FindElement(by).Clear();
-            //_driver.FindElement(by).SendKeys(text);
             _driver.FindElement(by).SendKeys(Keys.Control + text);
         }
 
@@ -142,7 +138,6 @@ namespace Google.Framework.Tools
         {
             try
             {
-                //WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
                 _wait.Until(d => IsElementDisplayed(selector));
                 return true;
             }
