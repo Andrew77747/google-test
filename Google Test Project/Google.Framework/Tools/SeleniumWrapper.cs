@@ -47,6 +47,12 @@ namespace Google.Framework.Tools
             _driver.Navigate().GoToUrl(url);
         }
 
+        public void PointToElement(By selector)
+        {
+            Actions action = new Actions(_driver);
+            action.MoveToElement(_driver.FindElement(selector)).Build().Perform();
+        }
+
         public void Type(By by, string text)
         {
             FindElement(by).SendKeys(text);

@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading;
+﻿using System.Threading;
 using Google.Framework.PageObjects.Elements;
 using Google.Framework.Tools;
 using Infrastructure.Settings;
@@ -41,11 +39,13 @@ namespace Google.Framework.PageObjects.Pages
         private readonly By _enterForm = By.CssSelector("div.xkfVF");
         private readonly By _searchResult = By.CssSelector(".LC20lb.MBeuO");
         private readonly By _virtualKeyboard = By.CssSelector(".ita-container");
-        private readonly By _emptyArea = By.CssSelector(".o3j99.LLD4me");
+        //private readonly By _emptyArea = By.CssSelector(".o3j99.qarstb");
         private readonly By _hintsDropdown = By.CssSelector("[jsname='aajZCb']");
         private readonly By _loginInput = By.CssSelector("[type='email']");
         private readonly By _nextButton = By.XPath("//*[contains(text(), 'Далее')]");
         private readonly By _passwordInput = By.CssSelector("[type='password']");
+        private readonly By _accauntIcon = By.CssSelector("img.gb_Aa");
+        private readonly By _accauntEmail = By.CssSelector(".gb_mb");
 
 
         #endregion
@@ -159,7 +159,7 @@ namespace Google.Framework.PageObjects.Pages
         public void SearchInputClick()
         {
             Wrapper.Type(_searchInput, _demoText);
-            Wrapper.ClickElement(_emptyArea);
+            //Wrapper.ClickElement(_emptyArea);
             Wrapper.ClickElement(_searchButton);
         }
 
@@ -171,18 +171,6 @@ namespace Google.Framework.PageObjects.Pages
         public string SearchResult()
         {
             return Wrapper.FindElement(_searchResult).Text;
-        }
-
-        //public string SearchUrl()
-        //{
-        //    String URL = Wrapper.GetUrl();
-        //    return 
-        //}
-
-        public bool IsDropdownVisible()
-        {
-            Wrapper.ClickElement(_googleAppsIcon);
-            return Wrapper.IsElementDisplayed(_googleApps);
         }
 
         public bool IsKeyboardVisible()
@@ -198,16 +186,19 @@ namespace Google.Framework.PageObjects.Pages
             return Wrapper.IsElementDisplayed(_hintsDropdown);
         }
 
-        public string ClickSearchButtonWithEmptyInput()
+        public void ClickSearchButton()
         {
             Wrapper.ClickElement(_searchButton);
+        }
+
+        public string GetCurrentUrl()
+        {
             return Wrapper.GetUrl();
         }
 
-        public string ClickLuckyButtonWithEmptyInput()
+        public void ClickLuckyButton()
         {
             Wrapper.ClickElement(_luckyButton);
-            return Wrapper.GetUrl();
         }
 
         public void Login()
@@ -215,6 +206,12 @@ namespace Google.Framework.PageObjects.Pages
             Wrapper.ClickElement(_loginButton);
             Wrapper.TypeAndSendWithEnter(_loginInput, _email);
             Wrapper.TypeAndSendWithEnter(_passwordInput, _password);
+            Wrapper.ClickElement(_accauntIcon);
+        }
+
+        public string GetAccountEmail()
+        {
+            return Wrapper.FindElement(_accauntEmail).Text;
         }
     }
 }

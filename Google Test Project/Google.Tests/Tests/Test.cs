@@ -57,7 +57,6 @@ namespace Google.Tests.Tests
         {
             _googleSearchPage.SearchInputClick();
             Assert.AreEqual("Привет, Мир!", _googleSearchPage.SearchResult(), "");
-            //Assert.Contains("search", _googleSearchPage.SearchUrl(), "");
         }
 
         [Test]
@@ -65,14 +64,6 @@ namespace Google.Tests.Tests
         {
             _googleSearchPage.SearchInputEnter();
             Assert.AreEqual("Привет, Мир!", _googleSearchPage.SearchResult(), "");
-            //Assert.Contains("search", _googleSearchPage.SearchUrl(), "");
-        }
-
-        [Test]
-        public void CheckMenuDropdawn()
-        {
-            //Assert.IsTrue(page.TopMenu.IsDropdownVisible(page.TopMenu._dropdown), "Dropdown should be visible");
-            Assert.IsTrue(_googleSearchPage.IsDropdownVisible(), "Dropdown should be visible");
         }
 
         [Test]
@@ -90,15 +81,15 @@ namespace Google.Tests.Tests
         [Test]
         public void CheckEmptyInput()
         {
-            Assert.AreEqual(_googleSearchPage.BaseUrl, _googleSearchPage.ClickSearchButtonWithEmptyInput(), "Urls should be equal");
-            Assert.AreEqual(_googleSearchPage.LuckyPageUrl, _googleSearchPage.ClickLuckyButtonWithEmptyInput(), "Urls should be equal");
+            //Assert.AreEqual(_googleSearchPage.BaseUrl, _googleSearchPage.ClickSearchButton(), "Urls should be equal");
+            //Assert.AreEqual(_googleSearchPage.LuckyPageUrl, _googleSearchPage.ClickLuckyButton(), "Urls should be equal");// вынести в отдельный метод
         }
 
         [Test]
         public void CheckLogin()
         {
             _googleSearchPage.Login();
-            Thread.Sleep(5000);
+            Assert.AreEqual("test37670@gmail.com", _googleSearchPage.GetAccountEmail(), "");
         }
     }
 }
