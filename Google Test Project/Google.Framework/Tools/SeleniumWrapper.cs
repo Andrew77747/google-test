@@ -9,7 +9,6 @@ namespace Google.Framework.Tools
 {
     public class SeleniumWrapper
     {
-
         private IWebDriver _driver;
         private WebDriverWait _wait;
         private WebDriverWait _customDriverWait;
@@ -47,13 +46,13 @@ namespace Google.Framework.Tools
 
         public void SendKeysAndEscape(By by, string text)
         {
-            _driver.FindElement(by).SendKeys(text + Keys.Escape);
+            FindElement(by).SendKeys(text + Keys.Escape);
         }
 
         public void PointToElement(By selector)
         {
             Actions action = new Actions(_driver);
-            action.MoveToElement(_driver.FindElement(selector)).Build().Perform();
+            action.MoveToElement(FindElement(selector)).Build().Perform();
         }
 
         public void Type(By by, string text)
